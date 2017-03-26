@@ -54,6 +54,10 @@ namespace AdjustSdk.Pcl
             if (LogDelegate == null)
                 return;
 
+            // if either global log level or log level parameter are equal to suppress, skip logging
+            if(LogLevel == LogLevel.Suppress || logLevel == LogLevel.Suppress)
+                return;
+
             var logLevelString = logLevel.ToString().Substring(0, 1).ToLower();
 
             LogMessage(message, logLevelString, parameters);

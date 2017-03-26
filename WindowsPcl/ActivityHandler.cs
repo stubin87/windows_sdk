@@ -258,7 +258,8 @@ namespace AdjustSdk.Pcl
 
             if (AdjustConfig.Environment.Equals(AdjustConfig.EnvironmentProduction))
             {
-                Logger.LogLevel = LogLevel.Assert;
+                // suppress all logs in production
+                Logger.LogLevel = LogLevel.Suppress;
             }
             
             if (AdjustConfig.EventBufferingEnabled)
